@@ -1,4 +1,5 @@
 .row
   .columns
-    h2
-      = title("Home")
+    - if user_signed_in?
+      .large-5.large-centered.columns
+        = link_to "Начать тестирование", first_question, class: "large hollow secondary button"
