@@ -2,6 +2,8 @@ class Question < ApplicationRecord
   validates :content, :index, presence: true
   validates :index, uniqueness: true
 
+  belongs_to :widget
+  
   has_many :answer_variants, dependent: :destroy
   has_many :answers, dependent: :destroy
 end
