@@ -1,0 +1,5 @@
+.row
+  = simple_form_for :user_answer do |f|
+    ol type = "1"
+      - question.answer_variants.each do |variant|
+        li = variant.content

@@ -1,0 +1,7 @@
+.row
+  = simple_form_for :user_answer do |f|
+    ol type = "1"
+      - question.answer_variants.each do |variant|
+        li = variant.content
+    = f.input :answer, placeholder: "Введите номер верного варианта ответа"
+    = f.button :submit, "Ответить"

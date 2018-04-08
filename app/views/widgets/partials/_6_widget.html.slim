@@ -1,0 +1,10 @@
+.row
+  = simple_form_for :user_answer do |f|
+    ol type = "1"
+      - question.answer_variants.each do |variant|
+        li = variant.content
+    .button-group
+      = f.button :submit, "1"
+      = f.button :submit, "2"
+      = f.button :submit, "3"
+      = f.button :submit, "4"
