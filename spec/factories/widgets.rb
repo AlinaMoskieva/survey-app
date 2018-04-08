@@ -1,10 +1,10 @@
 FactoryGirl.define do
   factory :widget do
     name { Faker::Lorem.word }
-    type "input"
+    answer_type "input"
 
     trait :radio do
-      type "radio"
+      answer_type "radio"
     end
   end
 end
