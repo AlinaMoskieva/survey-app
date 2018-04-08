@@ -1,1 +1,4 @@
-= "Show"
+.row
+  .columns
+    = question.content
+    = render "widgets/partials/#{question.widget.name}_widget"

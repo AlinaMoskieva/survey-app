@@ -6,4 +6,8 @@ class Question < ApplicationRecord
 
   has_many :answer_variants, dependent: :destroy
   has_many :user_answers, dependent: :destroy
+
+  def right_answer
+    answer_variants.where(truthy: true)
+  end
 end

@@ -3,7 +3,6 @@ class UserAnswer < ApplicationRecord
 
   belongs_to :question
   belongs_to :user
-  belongs_to :answer_variant
 
   has_many :answers, dependent: :destroy
 end
