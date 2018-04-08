@@ -5,5 +5,5 @@ class Question < ApplicationRecord
   belongs_to :widget
 
   has_many :answer_variants, dependent: :destroy
-  has_many :answers, dependent: :destroy
+  has_many :user_answers, dependent: :destroy
 end

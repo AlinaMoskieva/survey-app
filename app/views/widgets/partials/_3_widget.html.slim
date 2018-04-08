@@ -2,7 +2,7 @@
   = simple_form_for :user_answer do |f|
     #calculator
       = f.input :answer, input_html: { class: "calculator__input", value: "" }
-      .calculator
+      .columns
         .button-group
           a#1.button 1
           a#2.button 2
@@ -19,3 +19,4 @@
           a#0.button 0
           a#del.button <
           a#del_all.button <<
+    = f.button :submit, "Ответить"
