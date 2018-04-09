@@ -1,10 +1,12 @@
 .row
-  = simple_form_for([question, UserAnswer.new]) do |f|
-    ol type = "1"
-      - question.answer_variants.each do |variant|
-        li = variant.content
-    .button-group
-      = f.button :submit, "1"
-      = f.button :submit, "2"
-      = f.button :submit, "3"
-      = f.button :submit, "4"
+  #widget_with_variants
+    = simple_form_for([question, UserAnswer.new]) do |f|
+      ol type = "1"
+        - question.answer_variants.each do |variant|
+          li.answer_variant = variant.content
+      = f.input :position_value, as: :hidden, input_html: { class: "position_value_answer", value: " " }
+      .button-group
+        = f.button :submit, "1", id: "button_answer_1"
+        = f.button :submit, "2", id: "button_answer_2"
+        = f.button :submit, "3", id: "button_answer_3"
+        = f.button :submit, "4", id: "button_answer_4"
