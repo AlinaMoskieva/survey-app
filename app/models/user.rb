@@ -4,4 +4,5 @@ class User < ApplicationRecord
   validates :full_name, presence: true
 
   has_many :user_answers, dependent: :destroy
+  has_many :feedbacks, dependent: :destroy
 end

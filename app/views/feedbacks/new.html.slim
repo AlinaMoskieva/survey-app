@@ -1,0 +1,23 @@
+.row
+  .columns
+    h4 = "Ответьте пожалуйста на несколько вопросов"
+
+    = form_tag "/feedbacks" do
+      - Widget.all.each do |widget|
+        .row.callout
+          .columns.medium-5
+            b= "Виджет ##{widget.name}"
+            br
+            = "Оцените пожалуйста важе впечатление от виджета, которым было необходимо дать ответ на задание"
+            br
+            = fields_for "feedbacks[]", Feedback.new do |p|
+              = p.select :raiting, [["Очень плохой", 1], ["Плохой", 2], ["Нормальный", 3], ["Хороший", 4], ["Отличный", 5]]
+              = p.text_field :comment, placeholder: "Прокомментруйте виджет"
+              = p.hidden_field :widget_id, value: widget.id
+              = p.hidden_field :user_id, value: current_user.id
+          .columns.medium-6
+            .thumbnail
+              = image_tag("#{widget.name}_widget.png", size: "400x400")
+            span
+              = "Представление виджета ##{widget.name}"
+      = submit_tag "Ответить"
