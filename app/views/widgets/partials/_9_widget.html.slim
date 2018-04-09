@@ -1,5 +1,7 @@
 .row
-  = simple_form_for([question, UserAnswer.new]) do |f|
-    .button-group
-      = f.button :submit, "Да"
-      = f.button :submit, "Нет"
+  #yes_no_widget
+    = simple_form_for([question, UserAnswer.new]) do |f|
+      = f.input :answer, as: :hidden, input_html: { class: "position_value_answer", value: " " }
+      .button-group
+        = f.button :submit, "Да", id: "yes_button"
+        = f.button :submit, "Нет", id: "no_button"

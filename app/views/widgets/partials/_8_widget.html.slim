@@ -3,7 +3,7 @@
     = simple_form_for([question, UserAnswer.new]) do |f|
         ol type = "1"
           - question.answer_variants.each_with_index do |variant, index|
-            li
+            li.answer_variant
               = variant.content
               = index
               = image_tag("flag.png", size: "16x10", class: "right_flag_image right_#{index + 1}", id: "#{index + 1}")

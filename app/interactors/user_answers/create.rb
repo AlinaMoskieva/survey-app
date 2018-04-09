@@ -14,7 +14,7 @@ module UserAnswers
     private
 
     def right_answer?
-      user_answer.answer.eql?(right_answer.first.content)
+      user_answer.answer.downcase.squish.eql?(right_answer.first.content.downcase)
     end
   end
 end

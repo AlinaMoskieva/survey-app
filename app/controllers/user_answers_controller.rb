@@ -2,7 +2,6 @@ class UserAnswersController < ApplicationController
   expose :user_answer
   expose :question
   expose :next_question, -> { Question.find_by_index(question.index + 1) }
-  expose :e_next_question, -> { Question.find_by_index(question.index + 100) }
 
   def create
     UserAnswers::Create.call(user_answer: user_answer)
