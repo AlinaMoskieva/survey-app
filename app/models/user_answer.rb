@@ -3,4 +3,8 @@ class UserAnswer < ApplicationRecord
 
   belongs_to :question
   belongs_to :user
+
+  def right?
+    answer.downcase.eql?(question.right_answer.downcase)
+  end
 end

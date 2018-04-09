@@ -8,6 +8,6 @@ class Question < ApplicationRecord
   has_many :user_answers, dependent: :destroy
 
   def right_answer
-    answer_variants.where(truthy: true)
+    answer_variants.where(truthy: true).first.content
   end
 end

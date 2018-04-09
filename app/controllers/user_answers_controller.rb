@@ -1,7 +1,12 @@
 class UserAnswersController < ApplicationController
+  expose :user_answers, -> { current_user.user_answers }
+  expose :questions, -> { Question.all }
   expose :user_answer
   expose :question
   expose :next_question, -> { Question.find_by_index(question.index + 1) }
+
+  def index
+  end
 
   def create
     UserAnswers::Create.call(user_answer: user_answer)
@@ -22,6 +27,6 @@ class UserAnswersController < ApplicationController
   end
 
   def path
-    next_question.nil? ? root_path : next_question
+    next_question.nil? ? user_answers_path : next_question
   end
 end

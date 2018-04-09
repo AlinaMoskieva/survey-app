@@ -5,4 +5,8 @@ class User < ApplicationRecord
 
   has_many :user_answers, dependent: :destroy
   has_many :feedbacks, dependent: :destroy
+
+  def fetch_answer_by(question)
+    user_answers.where(question: question).last
+  end
 end

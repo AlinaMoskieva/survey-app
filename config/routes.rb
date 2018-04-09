@@ -8,5 +8,7 @@ Rails.application.routes.draw do
     resources :user_answers
   end
 
+  resources :user_answers, only: :index
+
   root to: "pages#home"
 end

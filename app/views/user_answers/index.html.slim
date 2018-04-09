@@ -1,0 +1,16 @@
+.row
+  .columns
+    = link_to "Оставить отзыв", new_feedback_path, class: "hollow button secondary"
+    h4= "Ваши ответы"
+    - questions.each do |question|
+      - user_answer = current_user.fetch_answer_by(question)
+      div(class="callout #{user_answer.right? ? "primary" : "alert"}")
+        h6 = question.content
+        = "Верный ответ: #{question.right_answer}"
+        br
+        = "Ваш ответ: #{user_answer.answer}"
+        br
+        - if question.decision.present?
+          = "Объяснение:"
+          br
+          = question.decision
