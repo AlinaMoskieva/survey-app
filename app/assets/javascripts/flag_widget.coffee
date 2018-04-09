@@ -9,9 +9,14 @@ class FlagWidget
     @bindings()
 
   bindings: (el)->
-    $(".right_1, .right_2, .right_3, .right_4").on "click", @updateInput
+    console.log(@input)
+    @input.val(900)
+    $(".right_1, .right_2, .right_3, .right_4").on "click", @setAnswer
 
-  updateInput: (event)=>
+  setAnswer: (event)=>
+    console.log(event)
+    console.log(@input)
+
     @input.val(event.target.id)
     @show_wrong_flags(event.target.id)
 

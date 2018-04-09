@@ -7,7 +7,6 @@ class CalculatorWidget
     @clearButton = $("#del_all", @$el)
     @delButton = $("#del", @$el)
 
-
     @bindings()
 
   bindings: (el)->
@@ -29,4 +28,5 @@ class CalculatorWidget
     @input.val("")
 
 $ ->
-  new CalculatorWidget("#calculator")
+  if  $("#calculator_widget").length > 0
+    new CalculatorWidget("#calculator_widget")

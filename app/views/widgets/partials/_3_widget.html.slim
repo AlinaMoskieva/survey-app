@@ -1,6 +1,6 @@
 .row
-  = simple_form_for :user_answer do |f|
-    #calculator
+  = simple_form_for([question, UserAnswer.new]) do |f|
+    #calculator_widget
       = f.input :answer, input_html: { class: "calculator__input", value: "" }
       .columns
         .button-group

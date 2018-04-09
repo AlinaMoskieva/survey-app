@@ -1,4 +1,4 @@
 .row
-  = simple_form_for :user_answer do |f|
+  = simple_form_for([question, UserAnswer.new]) do |f|
     = f.input :answer, collection: ["Да", "Нет"]
     = f.button :submit, "Ответить"
