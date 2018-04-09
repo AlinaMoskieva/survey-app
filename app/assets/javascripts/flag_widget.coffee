@@ -14,9 +14,6 @@ class FlagWidget
     $(".right_1, .right_2, .right_3, .right_4").on "click", @setAnswer
 
   setAnswer: (event)=>
-    console.log(event)
-    console.log(@input)
-
     @input.val(event.target.id)
     @show_wrong_flags(event.target.id)
 
@@ -29,4 +26,5 @@ class FlagWidget
       $(".right_#{n}").hide()
 
 $ ->
-  new FlagWidget("#flags")
+  if  $("#flags").length > 0
+    new FlagWidget("#flags")

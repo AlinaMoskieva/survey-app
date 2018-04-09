@@ -28,5 +28,5 @@ class CalculatorWidget
     @input.val("")
 
 $ ->
-  if  $("#calculator_widget").length > 0
+  if $("#calculator_widget").length > 0
     new CalculatorWidget("#calculator_widget")

@@ -1,7 +1,9 @@
 .row
-  = simple_form_for([question, UserAnswer.new]) do |f|
-    ol type = "1"
-      - question.answer_variants.each do |variant|
-        li = variant.content
-    = f.input :answer, placeholder: "Введите номер верного варианта ответа"
-    = f.button :submit, "Ответить"
+  #widget_with_variants
+    = simple_form_for([question, UserAnswer.new]) do |f|
+      ol type = "1"
+        - question.answer_variants.each do |variant|
+          li.answer_variant = variant.content
+      = f.input :position_value, as: :hidden, input_html: { class: "position_value_answer", value: " " }
+      = f.input :answer, placeholder: "Введите номер верного варианта ответа"
+      = f.button :submit, "Ответить"

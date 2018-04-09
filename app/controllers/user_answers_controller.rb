@@ -12,9 +12,14 @@ class UserAnswersController < ApplicationController
   private
 
   def user_answer_params
-    params.require(:user_answer).permit(:answer)
-      .merge(params.permit(:question_id))
+    params.permit(:question_id)
       .merge(user_id: current_user.id)
+      .merge(answer: determine_answer)
+  end
+
+  def determine_answer
+    values = params.require(:user_answer).permit(:answer, :position_value)
+    values[:position_value].nil? ? values[:answer] : values[:position_value]
   end
 
   def path
