@@ -47,6 +47,9 @@ gem "rollbar"
 gem "seedbank"
 gem "stackprof"
 
+gem "factory_girl_rails"
+gem "faker"
+
 group :staging, :production do
   gem "newrelic_rpm"
 end
@@ -74,8 +77,6 @@ group :development, :test do
   gem "byebug"
   gem "coffeelint"
   gem "dotenv-rails"
-  gem "factory_girl_rails"
-  gem "faker"
   gem "jasmine", "> 2.0"
   gem "jasmine-jquery-rails"
   gem "pry-rails"
