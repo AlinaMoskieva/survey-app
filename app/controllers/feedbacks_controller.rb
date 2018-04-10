@@ -6,16 +6,7 @@ class FeedbacksController < ApplicationController
   end
 
   def create
-    params[:feedbacks].each do |feedback|
-      Feedback.create(feedback_params(feedback))
-    end
-
+    Feedbacks::Create.call(params: params[:feedbacks], user: current_user)
     redirect_to feedbacks
-  end
-
-  private
-
-  def feedback_params(params)
-    params.permit(:raiting, :comment, :widget_id, :user_id)
   end
 end
