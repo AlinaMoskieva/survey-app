@@ -7,6 +7,6 @@ class FeedbacksController < ApplicationController
 
   def create
     Feedbacks::Create.call(params: params[:feedbacks], user: current_user)
-    redirect_to feedbacks
+    redirect_to root_path
   end
 end
