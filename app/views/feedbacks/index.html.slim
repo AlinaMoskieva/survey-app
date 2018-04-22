@@ -1,25 +1,40 @@
 .row
   .columns
-    h2 = "Статистика"
+    h4 = "Статистика (без комментариев)"
+    .columns
+      table
+        thead
+          tr
+            th width="200"  Название виджета
+            th width="150"  Количество оценок
+            th width="150"  Средняя оценка
+        tbody
+          - widgets.each do |w|
+            tr
+              td = "Виджет ##{w.name}"
+              td = w.feedbacks.count
+              td = w.raiting
 
-    - widgets.each do |w|
-      .callout
-        .columns.medium-7
-          h4 = "Виджет ##{w.name}"
-          = "Количество оценок #{w.feedbacks.count}"
-          br
-          = "Средняя оценка #{w.raiting}"
-        .columns.medium-4
-          = image_tag("#{w.name}_widget.png", size: "240x240")
-        hr/
-        br
-        - w.feedbacks.each_with_index do |feedback, index|
-          b= "##{index + 1}"
-          br
-          = "Оценка #{feedback.raiting}"
-          br
-          - if feedback.comment.present?
-            = "Комментарий:"
+    h4 = "Статистика (с коммментариями)"
+    .columns
+      - widgets.each do |w|
+        .callout
+          .columns.medium-7
+            h4 = "Виджет ##{w.name}"
+            = "Количество оценок #{w.feedbacks.count}"
             br
-            = feedback.comment
-          hr/
+            = "Средняя оценка #{w.raiting}"
+          .columns.medium-4
+            = image_tag("#{w.name}_widget.png", size: "240x240")
+          br
+
+          - w.feedbacks.each_with_index do |feedback, index|
+            hr/
+            b= "##{index + 1}"
+            br
+            = "Оценка #{feedback.raiting}"
+            br
+            - if feedback.comment.present?
+              = "Комментарий:"
+              br
+              = feedback.comment
