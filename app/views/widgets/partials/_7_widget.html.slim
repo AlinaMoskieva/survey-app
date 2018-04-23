@@ -1,4 +1,6 @@
 .row
   = simple_form_for([question, UserAnswer.new]) do |f|
-    = f.input :answer, collection: question.answer_variants.pluck(:content)
-    = f.button :submit, "Ответить"
+    .columns.medium-7.end
+      br
+      = f.input :answer, collection: question.answer_variants.pluck(:content), label: "Выберите правильный ответ из списка"
+      = f.button :submit, "Ответить"

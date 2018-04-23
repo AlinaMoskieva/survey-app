@@ -1,4 +1,6 @@
 .row
   = simple_form_for([question, UserAnswer.new]) do |f|
-    = f.input :answer, as: :integer, value: 10
-    = f.button :submit, "Ответить"
+    .columns.medium-7.end
+      br
+      = f.input :answer, as: :integer, input_html: { value: 400 }, label: "Введите ответ, воспользовавшись кнопками увеличения и уменьшения числа"
+      = f.button :submit, "Ответить"

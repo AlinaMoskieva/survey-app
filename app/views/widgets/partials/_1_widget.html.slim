@@ -1,4 +1,6 @@
 .row
   = simple_form_for([question, UserAnswer.new]) do |f|
-    = f.input :answer, placeholder: "Введите ответ"
-    = f.button :submit, "Ответить"
+    .columns.medium-5.end
+      br
+      = f.input :answer, placeholder: "Введите ответ", label: "Введите числовой ответ"
+      = f.button :submit, "Ответить"
