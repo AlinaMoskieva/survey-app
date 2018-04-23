@@ -3,6 +3,7 @@ class FeedbacksController < ApplicationController
   expose :widgets, ->{ Widget.order(:id).group(:name, :id) }
 
   def index
+    authorize :feedback
   end
 
   def create
