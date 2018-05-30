@@ -8,12 +8,15 @@
             th width="200"  Название виджета
             th width="150"  Количество оценок
             th width="150"  Средняя оценка
+            th width="150"  Процент верных ответов
         tbody
           - widgets.each do |w|
+            - answers =  w.questions.first.user_answers
             tr
               td = "Виджет ##{w.name}"
-              td = w.feedbacks.count
+              td = 50
               td = w.raiting
+              td = answers.where(truthy: true).count.to_f / answers.count
 
     h4 = "Статистика (с коммментариями)"
     .columns

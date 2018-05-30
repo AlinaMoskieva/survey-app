@@ -1,6 +1,5 @@
 class FeedbacksController < ApplicationController
-  expose :feedbacks
-  expose :widgets, ->{ Widget.order(:id).group(:name, :id) }
+  expose :widgets, ->{ Widget.order(:id).group(:name, :id).includes(:feedbacks, questions: :user_answers) }
 
   def index
     authorize :feedback
