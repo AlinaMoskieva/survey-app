@@ -16,7 +16,7 @@
               td = "Виджет ##{w.name}"
               td = 50
               td = w.raiting
-              td = answers.where(truthy: true).count.to_f / answers.count
+              td = (answers.where(truthy: true).count.to_f / answers.count).round(4)
 
     h4 = "Статистика (с коммментариями)"
     .columns
