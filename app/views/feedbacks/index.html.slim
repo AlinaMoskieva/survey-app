@@ -8,7 +8,7 @@
             th width="200"  Название виджета
             th width="150"  Количество оценок
             th width="150"  Средняя оценка
-            th width="150"  Процент верных ответов
+            th width="200"  Процент верных ответов
         tbody
           - widgets.each do |w|
             - answers =  w.questions.first.user_answers
